@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.usopp.ediary.dao.ContentsMapper">
+    <select id="selectContentsById" resultType="Contents">
+        SELECT id,
+            title,
+            content,
+            writer,
+            emotion_id,
+            weather_id,
+            withs_id,
+            yyyymmdd
+        FROM contents
+        WHERE id = #{contentsId}
+    </select>
+
+    <select id="selectAllContents" resultType="Contents">
+        SELECT id,
+            title,
+            content,
+            writer,
+            emotion_id,
+            weather_id,
+            withs_id,
+            yyyymmdd
+        FROM contents
+    </select>
+
+    <insert id="insertContents" parameterType="Contents">
+        INSERT INTO contents (title, content, writer, emotion_id, weather_id, withs_id, yyyymmdd)
+        VALUES (#{title}, #{content}, ${writer}, #{emotionId}, #{weatherId}, #{withsId}, #{yyyymmdd})
+    </insert>
+
+    <update id="updateContents" parameterType="Contents">
+        UPDATE contents
+        SET title = #{title},
+            content = #{content},
+            emotion_id = #{emotionId},
+            weather_id = #{weatherId},
+            withs_id = #{withsId},
+            yyyymmdd = #{yyyymmdd}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteContents">
+        DELETE
+        FROM contents
+        WHERE id = #{id}
+    </delete>
+</mapper>
