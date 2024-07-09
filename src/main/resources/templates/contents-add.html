@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>일기 쓰기</title>
+</head>
+<body>
+    <h2>일기 쓰기</h2>
+    <form action="/contents" method="post">
+       <table>
+           <tr>
+               <th>감정</th>
+               <td>
+                   <label for="emotion1">행복</label>
+                   <input type="radio" name="emotion" value="HAPPY" id="emotion1"/>
+                   <label for="emotion2">기쁨</label>
+                   <input type="radio" name="emotion" value="SMILE" id="emotion2"/>
+                   <label for="emotion3">그럭저럭</label>
+                   <input type="radio" name="emotion" value="SOSO" id="emotion3"/>
+                   <label for="emotion4">슬픔</label>
+                   <input type="radio" name="emotion" value="SAD" id="emotion4"/>
+                   <label for="emotion5">나쁨</label>
+                   <input type="radio" name="emotion" value="BAD" id="emotion5"/>
+               </td>
+           </tr>
+           <tr>
+               <th>날씨</th>
+               <td>
+                   <label for="weather1">맑음</label>
+                   <input type="radio" name="weather" value="SUNNY" id="weather1"/>
+                   <label for="weather2">흐림</label>
+                   <input type="radio" name="weather" value="CLOUD" id="weather2"/>
+                   <label for="weather3">바람</label>
+                   <input type="radio" name="weather" value="WIND" id="weather3"/>
+                   <label for="weather4">비</label>
+                   <input type="radio" name="weather" value="RAIN" id="weather4"/>
+                   <label for="weather5">눈</label>
+                   <input type="radio" name="weather" value="SNOW" id="weather5"/>
+               </td>
+           </tr>
+
+           <tr>
+               <th>누구와 만났나요?</th>
+               <td>
+                   <label for="withs1">친구</label>
+                   <input type="radio" name="withs" value="FRIEND" id="withs1"/>
+                   <label for="withs2">가족</label>
+                   <input type="radio" name="withs" value="FAMILY" id="withs2"/>
+                   <label for="withs3">애인</label>
+                   <input type="radio" name="withs" value="COUPLE" id="withs3"/>
+                   <label for="withs4">지인</label>
+                   <input type="radio" name="withs" value="KNOWN" id="withs4"/>
+                   <label for="withs5">만나지 않음</label>
+                   <input type="radio" name="withs" value="SOLO" id="withs5"/>
+               </td>
+           </tr>
+           <tr>
+               <th>제목</th>
+               <td>
+                   <input type="text" name="title" maxlength="30 /">
+               </td>
+           </tr>
+           <tr>
+               <th>한 줄 쓰기</th>
+               <td>
+                   <textarea name="content" id="content" cols="30" rows="10"></textarea>
+               </td>
+           </tr>
+       </table>
+        <button type="submit">생성</button>
+    </form>
+</body>
+</html>

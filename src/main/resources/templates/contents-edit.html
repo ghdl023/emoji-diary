@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>일기 수정</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2>일기 수정</h2>
+    <form action="/contents" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <input type="hidden" name="id" th:value="${contents.id}">
+       <table>
+           <tr>
+               <th>감정</th>
+               <td>
+                   <label for="emotion1">행복</label>
+                   <input type="radio" name="emotion" value="HAPPY" th:attr="checked=${contents.emotionId == 'HAPPY' ? 'true' : 'false'}" id="emotion1"/>
+                   <label for="emotion2">기쁨</label>
+                   <input type="radio" name="emotion" value="SMILE" th:attr="checked=${contents.emotionId == 'SMILE' ? 'true' : 'false'}" id="emotion2"/>
+                   <label for="emotion3">그럭저럭</label>
+                   <input type="radio" name="emotion" value="SOSO" th:attr="checked=${contents.emotionId == 'SOSO' ? 'true' : 'false'}" id="emotion3"/>
+                   <label for="emotion4">슬픔</label>
+                   <input type="radio" name="emotion" value="SAD" th:attr="checked=${contents.emotionId == 'SAD' ? 'true' : 'false'}" id="emotion4"/>
+                   <label for="emotion5">나쁨</label>
+                   <input type="radio" name="emotion" value="BAD" th:attr="checked=${contents.emotionId == 'BAD' ? 'true' : 'false'}" id="emotion5"/>
+               </td>
+           </tr>
+           <tr>
+               <th>날씨</th>
+               <td>
+                   <label for="weather1">맑음</label>
+                   <input type="radio" name="weather" value="SUNNY" th:attr="checked=${contents.weatherId == 'SUNNY' ? 'true' : 'false'}" id="weather1"/>
+                   <label for="weather2">흐림</label>
+                   <input type="radio" name="weather" value="CLOUD" th:attr="checked=${contents.weatherId == 'CLOUD' ? 'true' : 'false'}" id="weather2"/>
+                   <label for="weather3">바람</label>
+                   <input type="radio" name="weather" value="WIND" th:attr="checked=${contents.weatherId == 'WIND' ? 'true' : 'false'}" id="weather3"/>
+                   <label for="weather4">비</label>
+                   <input type="radio" name="weather" value="RAIN" th:attr="checked=${contents.weatherId == 'RAIN' ? 'true' : 'false'}" id="weather4"/>
+                   <label for="weather5">눈</label>
+                   <input type="radio" name="weather" value="SNOW" th:attr="checked=${contents.weatherId == 'SNOW' ? 'true' : 'false'}" id="weather5"/>
+               </td>
+           </tr>
+
+           <tr>
+               <th>누구와 만났나요?</th>
+               <td>
+                   <label for="withs1">친구</label>
+                   <input type="radio" name="withs" value="FRIEND" th:attr="checked=${contents.withsId == 'FRIEND' ? 'true' : 'false'}" id="withs1"/>
+                   <label for="withs2">가족</label>
+                   <input type="radio" name="withs" value="FAMILY" th:attr="checked=${contents.withsId.toString() == 'FAMILY' ? 'true' : 'false'}" id="withs2"/>
+                   <label for="withs3">애인</label>
+                   <input type="radio" name="withs" value="COUPLE" th:attr="checked=${contents.withsId.toString() == 'COUPLE' ? 'true' : 'false'}" id="withs3"/>
+                   <label for="withs4">지인</label>
+                   <input type="radio" name="withs" value="KNOWN" th:attr="checked=${contents.withsId.toString() == 'KNOWN' ? 'true' : 'false'}" id="withs4"/>
+                   <label for="withs5">만나지 않음</label>
+                   <input type="radio" name="withs" value="SOLO"  th:attr="checked=${contents.withsId.toString() == 'SOLO' ? 'true' : 'false'}" id="withs5"/>
+               </td>
+           </tr>
+           <tr>
+               <th>제목</th>
+               <td>
+                   <input type="text" name="title" maxlength="30" th:value="${contents.title}" />
+               </td>
+           </tr>
+           <tr>
+               <th>한 줄 쓰기</th>
+               <td>
+                   <textarea name="content" id="content" cols="30" rows="10" th:value="${contents.content}" th:text="${contents.content}"></textarea>
+               </td>
+           </tr>
+       </table>
+        <button type="submit">저장</button>
+    </form>
+    <form action="/contents" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="id" th:value="${contents.id}">
+        <button type="submit">삭제</button>
+    </form>
+</body>
+</html>
