@@ -70,7 +70,6 @@ public class ContentsController {
 
     @PutMapping("")
     public String editContents(HttpServletRequest httpServletRequest) {
-        System.out.println("dial");
         Long id = Long.parseLong(httpServletRequest.getParameter("id"));
         String title = httpServletRequest.getParameter("title");
         String content = httpServletRequest.getParameter("content");
